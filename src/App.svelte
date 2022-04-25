@@ -28,10 +28,15 @@
       Assumenda magni dolorem porro?`,
     },
   ];
+
+  const deleteFeedback = e => {
+    const itemId = e.detail;
+    feedback = feedback.filter(item => item.id !== itemId);
+  };
 </script>
 
-<main>
-  <FeedbackList {feedback} />
+<main class="container">
+  <FeedbackList {feedback} on:delete-feedback={deleteFeedback} />
 </main>
 
 <style>
