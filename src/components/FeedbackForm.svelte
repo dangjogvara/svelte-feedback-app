@@ -4,6 +4,18 @@
 
   let text = '';
   let btnDisabled = true;
+  let min = 10;
+  let message;
+
+  const handleInput = () => {
+    if (text.trim().length <= min) {
+      message = `Text must be atleast ${min} characters`;
+      btnDisabled = true;
+    } else {
+      message = null;
+      btnDisabled = false;
+    }
+  };
 </script>
 
 <Card>
@@ -15,10 +27,16 @@
       <input
         type="text"
         bind:value={text}
+        on:input={handleInput}
         placeholder="Tell us something that keeps you coming back"
       />
       <Button disabled={btnDisabled} type="submit">Send</Button>
     </div>
+    {#if message}
+      <div class="message">
+        {message}
+      </div>
+    {/if}
   </form>
 </Card>
 
