@@ -1,8 +1,10 @@
 <script>
   import Button from './UI/Button.svelte';
   import Card from './UI/Card.svelte';
+  import RatingSelect from './RatingSelect.svelte';
 
   let text = '';
+  let rating = 10;
   let btnDisabled = true;
   let min = 10;
   let message;
@@ -23,6 +25,7 @@
     <h2>How would you rate your service with us?</h2>
   </header>
   <form>
+    <RatingSelect />
     <div class="input-group">
       <input
         type="text"
